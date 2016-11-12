@@ -17,3 +17,8 @@ Quick Start Guide
 ### Running the web app
 
 * Run `mvn spring-boot:run` on root directory
+
+### Deploy default data
+
+* Pre-requisite : able to run the app at least once (See Running the web app section).
+* Run `mvn spring-boot:run -Pinsert` on root directory to deploy default data (Liquibase)
