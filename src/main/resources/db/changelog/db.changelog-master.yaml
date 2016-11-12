@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: ddevera
+      changes:
+        - dropSequence:
+            sequenceName: hibernate_sequence
+  - changeSet:
+      id: 2
+      author: ddevera
+      changes:
+        - createSequence:
+            sequenceName: hibernate_sequence
+            minValue: 1000
+            startValue: 1000
+  - changeSet:
+      id: 3
+      author: ddevera
+      changes:
+        - loadData:
+            tableName: users
+            file: /db/changelog/data/users
+            encoding: UTF-8

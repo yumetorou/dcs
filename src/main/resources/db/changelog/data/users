@@ -1,0 +1,7 @@
+id,username,password,enabled,account_non_locked,account_non_expired,credentials_non_expired
+1,admin,$2a$10$LehROxvGOls7KBbZuegOju3SDKYRb9GyPP9UpqIaJWiGjXvss0JUa,Y,Y,Y,Y
+2,user1,$2a$10$LehROxvGOls7KBbZuegOju3SDKYRb9GyPP9UpqIaJWiGjXvss0JUa,Y,Y,Y,Y
+3,user2,$2a$10$LehROxvGOls7KBbZuegOju3SDKYRb9GyPP9UpqIaJWiGjXvss0JUa,Y,Y,Y,Y
+4,user3,$2a$10$LehROxvGOls7KBbZuegOju3SDKYRb9GyPP9UpqIaJWiGjXvss0JUa,Y,Y,Y,Y
+5,user4,$2a$10$LehROxvGOls7KBbZuegOju3SDKYRb9GyPP9UpqIaJWiGjXvss0JUa,Y,Y,Y,Y
+6,user5,$2a$10$LehROxvGOls7KBbZuegOju3SDKYRb9GyPP9UpqIaJWiGjXvss0JUa,Y,Y,Y,Y
