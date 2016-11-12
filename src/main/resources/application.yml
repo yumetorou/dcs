@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: @jdbc.url@
+    username: @jdbc.username@
+    password: @jdbc.password@
+    driverClassName: @jdbc.driverClassName@
+    hikari:
+      maxIdleTime: 20000
+      idleTimeout: 20000
+    cachePrepStmts: true
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    connection-test-query: SELECT 1
+  jpa:
+    hibernate.ddl-auto: update
+    database-platform: @hibernate.dialect@
