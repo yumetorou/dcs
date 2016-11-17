@@ -13,9 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
 
-/**
- * @author ddevera
- */
 @Service
 public class UserServiceImpl implements UserService {
 
