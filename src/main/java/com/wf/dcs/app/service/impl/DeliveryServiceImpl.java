@@ -2,8 +2,8 @@ package com.wf.dcs.app.service.impl;
 
 import com.wf.dcs.app.dto.DeliveryDto;
 import com.wf.dcs.app.dto.PageDto;
-import com.wf.dcs.app.dto.UserDto;
 import com.wf.dcs.app.mapper.OrikaBeanMapper;
+import com.wf.dcs.app.model.Delivery;
 import com.wf.dcs.app.repository.DeliveryRepository;
 import com.wf.dcs.app.service.DeliveryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,16 @@ public class DeliveryServiceImpl implements DeliveryService {
     private DeliveryRepository deliveryRepository;
 
     @Override
-    public DeliveryDto save(DeliveryDto userDto) {
-        return null;
+    public DeliveryDto save(DeliveryDto deliveryDto) {
+        Delivery delivery = deliveryRepository.findById(deliveryDto.getId());
+
+        if (delivery == null) {
+            delivery = new Delivery();
+        }
+
+        mapper.map(deliveryDto, delivery);
+
+        return mapper.map(deliveryRepository.save(delivery), DeliveryDto.class);
     }
 
     @Override
