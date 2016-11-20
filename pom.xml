@@ -32,6 +32,9 @@
 
     <liquibase.enabled>false</liquibase.enabled>
 
+
+    <frontend-maven-plugin.nodeVersion>v6.7.0</frontend-maven-plugin.nodeVersion>
+    <frontend-maven-plugin.npmVersion>3.10.9</frontend-maven-plugin.npmVersion>
     <spring-boot.version>1.4.2.RELEASE</spring-boot.version>
     <postgresql.version>9.4.1211</postgresql.version>
     <HikariCP.version>2.5.1</HikariCP.version>
@@ -179,6 +182,48 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.2</version>
+        <configuration>
+          <workingDirectory>src/main/resources/static/</workingDirectory>
+        </configuration>
+
+        <executions>
+          <execution>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <phase>compile</phase>
+            <configuration>
+              <nodeVersion>${frontend-maven-plugin.nodeVersion}</nodeVersion>
+              <npmVersion>${frontend-maven-plugin.npmVersion}</npmVersion>
+            </configuration>
+          </execution>
+          <execution>
+            <id>npm install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>compile</phase>
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>npm compile typescript</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>compile</phase>
+            <configuration>
+              <arguments>run-script tsc</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
@@ -188,6 +233,32 @@
       <properties>
         <liquibase.enabled>true</liquibase.enabled>
       </properties>
+    </profile>
+    <profile>
+      <id>compile-typescript</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <configuration>
+              <workingDirectory>src/main/resources/static/</workingDirectory>
+            </configuration>
+            <executions>
+              <execution>
+                <id>npm install typescript</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <phase>compile</phase>
+                <configuration>
+                  <arguments>run-script tsc:run-w</arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 
