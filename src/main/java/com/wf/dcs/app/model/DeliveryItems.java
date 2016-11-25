@@ -20,6 +20,9 @@ public class DeliveryItems {
     @Column(name = "TOTAL")
     private BigDecimal total;
 
+    @Column(name = "ITEM_PRICE")
+    private BigDecimal price;
+
     public Long getQuantity() {
         return quantity;
     }
@@ -42,5 +45,13 @@ public class DeliveryItems {
 
     public void setTotal(BigDecimal total) {
         this.total = total;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

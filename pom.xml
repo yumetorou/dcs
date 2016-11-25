@@ -212,16 +212,6 @@
               <arguments>install</arguments>
             </configuration>
           </execution>
-          <execution>
-            <id>npm compile typescript</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <phase>compile</phase>
-            <configuration>
-              <arguments>run-script tsc</arguments>
-            </configuration>
-          </execution>
         </executions>
       </plugin>
     </plugins>
@@ -233,32 +223,6 @@
       <properties>
         <liquibase.enabled>true</liquibase.enabled>
       </properties>
-    </profile>
-    <profile>
-      <id>compile-typescript</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.github.eirslett</groupId>
-            <artifactId>frontend-maven-plugin</artifactId>
-            <configuration>
-              <workingDirectory>src/main/resources/static/</workingDirectory>
-            </configuration>
-            <executions>
-              <execution>
-                <id>npm install typescript</id>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-                <phase>compile</phase>
-                <configuration>
-                  <arguments>run-script tsc:run-w</arguments>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
     </profile>
   </profiles>
 

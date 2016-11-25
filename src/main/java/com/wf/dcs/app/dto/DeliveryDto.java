@@ -6,10 +6,10 @@ import java.util.List;
 /**
  * Created by rbandioque on 11/17/16.
  */
-public class DeliveryDto extends BaseDto{
+public class DeliveryDto extends BaseDto {
 
     private String referenceNumber;
-    private CustomerDto customer;
+    private CustomerDeliveryDto customer;
     private List<DeliveryItemsDto> items;
     private BigDecimal totalDelivery;
     private BigDecimal payment;
@@ -27,11 +27,11 @@ public class DeliveryDto extends BaseDto{
         this.referenceNumber = referenceNumber;
     }
 
-    public CustomerDto getCustomer() {
+    public CustomerDeliveryDto getCustomer() {
         return customer;
     }
 
-    public void setCustomer(CustomerDto customer) {
+    public void setCustomer(CustomerDeliveryDto customer) {
         this.customer = customer;
     }
 

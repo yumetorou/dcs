@@ -36,4 +36,14 @@ public class DeliveryResource {
     public ResponseEntity<DeliveryDto> get(@PathVariable("id") Long id) {
         return new ResponseEntity<>(deliveryService.get(id), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/pay", method = POST)
+    public ResponseEntity<DeliveryDto> payDelivery(@RequestBody DeliveryDto deliveryDto) throws Exception {
+        return new ResponseEntity<DeliveryDto>(deliveryService.closeDelivery(deliveryDto), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/void/{id}", method = POST)
+    public ResponseEntity<DeliveryDto> voidDelivery(@PathVariable Long id) throws Exception {
+        return new ResponseEntity<DeliveryDto>(deliveryService.voidDelivery(id), HttpStatus.OK);
+    }
 }

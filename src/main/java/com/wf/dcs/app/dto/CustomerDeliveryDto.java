@@ -1,64 +1,30 @@
-package com.wf.dcs.app.model;
+package com.wf.dcs.app.dto;
 
-import com.wf.dcs.app.model.base.BaseModel;
-import org.hibernate.annotations.Type;
 import org.joda.time.Days;
-import org.joda.time.LocalDateTime;
+import org.joda.time.LocalDate;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 
 /**
- * Created by rbandioque on 11/15/16.
+ * Created by rbandioque on 11/17/16.
  */
-@Entity(name = "Customer")
-public class Customer extends BaseModel {
+public class CustomerDeliveryDto extends BaseDto {
 
-    @Column(name = "CODE")
     private String code;
-
-    @Column(name = "GROUPING")
     private String group;
-
-    @Column(name = "NAME")
     private String name;
-
-    @Column(name = "ADDRESS")
     private String address;
-
-    @ElementCollection
-    @CollectionTable(name = "CUSTOMER_CONTACTS", joinColumns = @JoinColumn(name = "CUSTOMER_ID"))
     private Set<String> contactNumbers;
-
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
-    @Column(name = "FIRST_BUY_DATE")
-    private LocalDateTime firstBuyDate;
-
-    @Column(name = "CONTACT_PERSON")
+    private LocalDate firstBuyDate;
     private String contactPerson;
-
-    @Column(name = "UNIT_PRICE")
     private BigDecimal unitPrice;
-
-    @ElementCollection
-    @CollectionTable(name = "CUSTOMER_DELIVERY_DAYS", joinColumns = @JoinColumn(name = "CUSTOMER_ID"))
     private Set<Days> deliveryDay;
-
-    @Column(name = "WEEKLY_QUANTITY")
     private Long weeklyQuantity;
-
-    @Column(name = "REMARKS")
     private String remarks;
-
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Delivery> deliveries;
-
-    @Column(name = "ACCOUNT_BALANCE")
+    private List<DeliveryDto> deliveries;
     private BigDecimal accountBalance;
-
-    @Column(name = "UNRETURNED_BOTTLES")
     private Long unreturnedBottles;
 
     public String getCode() {
@@ -93,12 +59,19 @@ public class Customer extends BaseModel {
         this.address = address;
     }
 
+    public Set<String> getContactNumbers() {
+        return contactNumbers;
+    }
 
-    public LocalDateTime getFirstBuyDate() {
+    public void setContactNumbers(Set<String> contactNumbers) {
+        this.contactNumbers = contactNumbers;
+    }
+
+    public LocalDate getFirstBuyDate() {
         return firstBuyDate;
     }
 
-    public void setFirstBuyDate(LocalDateTime firstBuyDate) {
+    public void setFirstBuyDate(LocalDate firstBuyDate) {
         this.firstBuyDate = firstBuyDate;
     }
 
@@ -142,11 +115,11 @@ public class Customer extends BaseModel {
         this.remarks = remarks;
     }
 
-    public List<Delivery> getDeliveries() {
+    public List<DeliveryDto> getDeliveries() {
         return deliveries;
     }
 
-    public void setDeliveries(List<Delivery> deliveries) {
+    public void setDeliveries(List<DeliveryDto> deliveries) {
         this.deliveries = deliveries;
     }
 
@@ -164,13 +137,5 @@ public class Customer extends BaseModel {
 
     public void setUnreturnedBottles(Long unreturnedBottles) {
         this.unreturnedBottles = unreturnedBottles;
-    }
-
-    public Set<String> getContactNumbers() {
-        return contactNumbers;
-    }
-
-    public void setContactNumbers(Set<String> contactNumbers) {
-        this.contactNumbers = contactNumbers;
     }
 }
