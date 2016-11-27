@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import "../../rxjs-extensions";
 import {CustomerService} from "../customer.service";
 
@@ -10,13 +10,14 @@ import {CustomerService} from "../customer.service";
 export class CustomerListComponent implements OnInit {
     public data:any[];
 
-    constructor(public router:Router, private customerService:CustomerService) {
+    constructor(public router:Router, private customerService:CustomerService, private route:ActivatedRoute) {
     }
+
     ngOnInit() {
 
-        this.customerService.getCustomers({page:0,size:10}).subscribe(
+        this.customerService.getCustomers({page: 0, size: 10}).subscribe(
             result => {
-                this.data = result.data;
+                this.data = result.results;
             }
         );
         console.log('Customer List');
