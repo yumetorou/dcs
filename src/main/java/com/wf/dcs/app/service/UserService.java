@@ -11,4 +11,6 @@ public interface UserService {
     UserDto get(Long id);
 
     PageDto<UserDto> get(Pageable pageable);
+
+    UserDto findUsernameDto(String username);
 }

@@ -1,7 +1,13 @@
 {
+  "name": "web-community",
+  "version": false,
+  "dependencies": {
+    "es6-promise": "registry:npm/es6-promise#3.0.0+20160211003958",
+    "lodash": "registry:npm/lodash#4.0.0+20160416211519"
+  },
   "globalDependencies": {
-    "core-js": "registry:dt/core-js#0.0.0+20160725163759",
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504",
     "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-    "node": "registry:dt/node#6.0.0+20160909174046"
+    "jquery": "registry:dt/jquery#1.10.0+20160620094458"
   }
 }

@@ -1,4 +1,6 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+document.addEventListener("DOMContentLoaded", function(event) {
+    platformBrowserDynamic().bootstrapModule(AppModule);
+});

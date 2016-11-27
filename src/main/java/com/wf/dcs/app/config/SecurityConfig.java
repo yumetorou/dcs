@@ -62,31 +62,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
-                .successHandler(successHandler()).failureHandler(failureHandler())
-                .and()
-                .logout().logoutSuccessHandler(logoutSuccessHandler())
-                .and()
-                .exceptionHandling()
-                .authenticationEntryPoint(authenticationEntryPoint())
-                .and()
-                .authorizeRequests()
-                .antMatchers(
-                        "/app/**",
-                        "/dist/**",
-                        "/assets/*",
-                        "/styles/**",
-                        "/resources/**",
-                        "/fonts/*",
-                        "/**/*.html",
-                        "/node_modules/zone.js/dist/zone.js",
-                        "/node_modules/reflect-metadata/Reflect.js",
-                        "/"
-                ).permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .csrf().requireCsrfProtectionMatcher(requireCsrfProtectionMatcher()).csrfTokenRepository(csrfTokenRepository())
-                .and()
-                .addFilterAfter(csrfHeaderFilter(), SessionManagementFilter.class);
+            .successHandler(successHandler()).failureHandler(failureHandler())
+            .and()
+            .logout().logoutSuccessHandler(logoutSuccessHandler())
+            .and()
+            .exceptionHandling()
+            .authenticationEntryPoint(authenticationEntryPoint())
+            .and()
+            .authorizeRequests()
+            .antMatchers(
+                "/app/**",
+                "/public/dist/**",
+                "/public/lib/**",
+                "/public/fonts/**",
+                "/assets/*",
+                "/styles/**",
+                "/resources/**",
+                "/fonts/*",
+                "/**/*.html",
+                "/node_modules/zone.js/dist/zone.js",
+                "/node_modules/reflect-metadata/Reflect.js",
+                "/"
+            ).permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .csrf().requireCsrfProtectionMatcher(requireCsrfProtectionMatcher()).csrfTokenRepository(csrfTokenRepository())
+            .and()
+            .addFilterAfter(csrfHeaderFilter(), SessionManagementFilter.class);
     }
 
     private UserDetailsService userProfileService() {
@@ -94,7 +96,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             User user = userRepository.findByUsername(username);
 
             if (user == null || !user.isAccountNonExpired() || !user.isAccountNonLocked()
-                    || !user.isCredentialsNonExpired() || !user.isEnabled()) {
+                || !user.isCredentialsNonExpired() || !user.isEnabled()) {
                 throw new UsernameNotFoundException("User " + username + " does not exist or is disabled");
             }
 
@@ -109,7 +111,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             @Override
             public boolean matches(HttpServletRequest request) {
                 return !allowedMethods.matcher(request.getMethod()).matches() && !request.getRequestURI().equals("/login")
-                        && !request.getRequestURI().equals("/logout");
+                    && !request.getRequestURI().equals("/logout");
             }
         };
     }
@@ -123,14 +125,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             @Override
             protected void doFilterInternal(HttpServletRequest request,
                                             HttpServletResponse response, FilterChain filterChain)
-                    throws ServletException, IOException {
+                throws ServletException, IOException {
                 CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class
-                        .getName());
+                    .getName());
                 if (csrf != null) {
                     Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
                     String token = csrf.getToken();
                     if (cookie == null || token != null
-                            && !token.equals(cookie.getValue())) {
+                        && !token.equals(cookie.getValue())) {
                         cookie = new Cookie("XSRF-TOKEN", token);
                         cookie.setPath("/");
                         response.addCookie(cookie);
@@ -161,8 +163,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
                                                 AuthenticationException exception) throws IOException, ServletException {
                 response.sendError(
-                        SC_UNAUTHORIZED,
-                        "Authentication Failed: " + exception.getMessage());
+                    SC_UNAUTHORIZED,
+                    "Authentication Failed: " + exception.getMessage());
             }
         };
     }

@@ -1,0 +1,66 @@
+<div class="row">
+  <h1 class="page-header">Customer Form</h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-8">
+    <form role="form" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label class="control-label">Group</label>
+        <input class="form-control" name="group" [(ngModel)]="customer.group" required>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Name</label>
+        <input class="form-control" name="name" [(ngModel)]="customer.name" required>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Contact Number</label>
+        <input class="form-control" name="contactNumber" [(ngModel)]="customer.contactNumber">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Address</label>
+        <input class="form-control" name="address" [(ngModel)]="customer.address" required>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">First Buy Date</label>
+        <input class="form-control" name="group" [(ngModel)]="customer.firstBuyDate">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Contact Person</label>
+        <input class="form-control" name="contactperson" [(ngModel)]="customer.contactPerson">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Unit Price</label>
+        <input class="form-control" type="number" name="unitPrice" [(ngModel)]="customer.unitPrice">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Delivery Day</label>
+        <input class="form-control" name="deliveryDay" [(ngModel)]="customer.deliveryDays">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Weekly Quantity</label>
+        <input class="form-control" type="number" name="quantity" [(ngModel)]="customer.weeklyQuantity">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Remarks</label>
+        <textarea class="form-control" name="remarks" [(ngModel)]="customer.remarks"></textarea>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success" type="submit">Save</button>
+        <button class="btn btn-warning" type="button" routerLink="/customer">Cancel</button>
+      </div>
+
+    </form>
+  </div>
+</div>

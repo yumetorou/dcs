@@ -44,11 +44,16 @@ public class UserServiceImpl implements UserService {
     public PageDto<UserDto> get(Pageable pageable) {
         Page<User> users = userRepository.findByEnabledFalse(pageable);
         return PageDto.newPageInfo(
-                users,
-                users
-                        .getContent()
-                        .stream()
-                        .map(user -> mapper.map(user, UserDto.class))
-                        .collect(Collectors.toList()));
+            users,
+            users
+                .getContent()
+                .stream()
+                .map(user -> mapper.map(user, UserDto.class))
+                .collect(Collectors.toList()));
+    }
+
+    @Override
+    public UserDto findUsernameDto(String username) {
+        return mapper.map(userRepository.findByUsername(username), UserDto.class);
     }
 }
