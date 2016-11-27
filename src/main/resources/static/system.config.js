@@ -4,7 +4,6 @@ var map = {
   'rxjs': 'lib/js/rxjs',
   '@angular': 'lib/js/@angular',
   'zone.js': 'lib/js/zone.js/dist',
-  'primeng': 'lib/js/primeng',
   'angular2-datatable': 'lib/js/angular2-datatable',
   'lodash': 'lib/js/lodash/lodash.js'
 };
@@ -14,7 +13,6 @@ var packages = {
   'app': {main: 'main', defaultExtension: 'js'},
   'rxjs': {defaultExtension: 'js'},
   'zone.js': {main: 'zone', defaultExtension: 'js'},
-  'primeng': {defaultExtension: 'js'},
   'angular2-datatable': {main: 'index.js', defaultExtension: 'js'}
 };
 

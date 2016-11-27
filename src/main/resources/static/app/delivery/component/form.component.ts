@@ -6,11 +6,16 @@ import "../../rxjs-extensions";
     templateUrl: 'app/delivery/view/form.html'
 })
 export class DeliveryFormComponent implements OnInit {
+    public delivery:any = {};
     constructor(public router:Router) {
     }
 
     ngOnInit() {
         console.log('Delivery Form');
+    }
+
+    onSubmit(){
+        console.log(this.delivery);
     }
 
 }

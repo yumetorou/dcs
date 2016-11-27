@@ -6,11 +6,14 @@ import {RouterModule} from "@angular/router";
 import {InventoryFormComponent} from "./component/form.component";
 import {InventoryListComponent} from "./component/list.component";
 import {InventoryViewComponent} from "./component/view.component";
+import {DataTableModule} from "angular2-datatable";
+
 @NgModule({
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
+        DataTableModule,
         RouterModule
     ],
     declarations: [

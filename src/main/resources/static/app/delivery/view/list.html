@@ -1,1 +1,40 @@
-Delivery List
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Delivery List
+      <a class="btn btn-default pull-right" routerLink="/delivery/create"><i class="fa fa-plus"> Delivery</i></a>
+    </h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
+      <thead>
+      <tr>
+        <th style="width: 20%">Reference Number</th>
+        <th style="width: 30%">Customer</th>
+        <th style="width: 40%">Total</th>
+        <th style="width: 10%"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of mf.data">
+        <td>{{item.referenceNumber}}</td>
+        <td>{{item.customer.name}}</td>
+        <td>{{item.totals}}</td>
+        <td>
+          <button class="btn btn-default" routerLink="/customer/update/{{item.id}}">Update</button>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="3">
+          <mfBootstrapPaginator></mfBootstrapPaginator>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+
+</div>

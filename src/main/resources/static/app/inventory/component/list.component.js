@@ -7,16 +7,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 require("../../rxjs-extensions");
+var inventory_service_1 = require("../inventory.service");
 var InventoryListComponent = (function () {
-    function InventoryListComponent(router) {
+    function InventoryListComponent(router, inventoryService) {
         this.router = router;
+        this.inventoryService = inventoryService;
+        this.data = [];
     }
     InventoryListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.inventoryService.getItems({ page: 0, size: 10 }).subscribe(function (result) {
+            _this.data = result.results;
+        });
         console.log('Inventory List');
     };
     InventoryListComponent = __decorate([
         core_1.Component({
-            templateUrl: 'app/inventory/view/list.html'
+            templateUrl: 'app/inventory/view/list.html',
+            providers: [inventory_service_1.InventoryService]
         })
     ], InventoryListComponent);
     return InventoryListComponent;

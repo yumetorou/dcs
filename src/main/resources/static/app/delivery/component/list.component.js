@@ -10,6 +10,7 @@ require("../../rxjs-extensions");
 var DeliveryListComponent = (function () {
     function DeliveryListComponent(router) {
         this.router = router;
+        this.data = [];
     }
     DeliveryListComponent.prototype.ngOnInit = function () {
         console.log('Customer List');

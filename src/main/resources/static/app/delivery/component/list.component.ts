@@ -6,6 +6,8 @@ import "../../rxjs-extensions";
     templateUrl: 'app/delivery/view/list.html'
 })
 export class DeliveryListComponent implements OnInit {
+
+    public data:any[] = [];
     constructor(public router:Router) {
     }
 

@@ -7,16 +7,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 require("../../rxjs-extensions");
+var inventory_service_1 = require("../inventory.service");
 var InventoryFormComponent = (function () {
-    function InventoryFormComponent(router) {
+    function InventoryFormComponent(router, inventoryService, route) {
         this.router = router;
+        this.inventoryService = inventoryService;
+        this.route = route;
+        this.item = {};
     }
     InventoryFormComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            var id = +params['id'];
+            if (id) {
+                _this.inventoryService.getItem(id).subscribe(function (item) {
+                    _this.item = item;
+                });
+            }
+        });
         console.log('Inventory Form');
+    };
+    InventoryFormComponent.prototype.onSubmit = function () {
+        this.inventoryService.saveItem(this.item).subscribe(function (result) {
+            console.log('saved');
+        }, function (error) {
+            console.log('error');
+        });
+        console.log(this.item);
     };
     InventoryFormComponent = __decorate([
         core_1.Component({
-            templateUrl: 'app/inventory/view/form.html'
+            templateUrl: 'app/inventory/view/form.html',
+            providers: [inventory_service_1.InventoryService]
         })
     ], InventoryFormComponent);
     return InventoryFormComponent;

@@ -50,6 +50,10 @@ const routes:Routes = [
                 component: DeliveryFormComponent
             },
             {
+                path: 'update/:id',
+                component: DeliveryFormComponent
+            },
+            {
                 path: 'view',
                 component: DeliveryViewComponent
             }
@@ -65,6 +69,10 @@ const routes:Routes = [
             },
             {
                 path: 'create',
+                component: InventoryFormComponent
+            },
+            {
+                path: 'update/:id',
                 component: InventoryFormComponent
             },
             {

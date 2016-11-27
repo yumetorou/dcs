@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
         this.loadCurrent();
     }
 
+
     loadCurrent() {
         this.authService.currentUser().subscribe(
             result => {

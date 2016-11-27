@@ -10,9 +10,13 @@ require("../../rxjs-extensions");
 var DeliveryFormComponent = (function () {
     function DeliveryFormComponent(router) {
         this.router = router;
+        this.delivery = {};
     }
     DeliveryFormComponent.prototype.ngOnInit = function () {
         console.log('Delivery Form');
+    };
+    DeliveryFormComponent.prototype.onSubmit = function () {
+        console.log(this.delivery);
     };
     DeliveryFormComponent = __decorate([
         core_1.Component({

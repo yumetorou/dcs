@@ -118,9 +118,6 @@ gulp.task('copy:libs', function () {
   gulp.src(['node_modules/lodash/**/*'
   ]).pipe(gulp.dest('public/lib/js/lodash'));
 
-  gulp.src(['node_modules/primeng/**/*'
-  ]).pipe(gulp.dest('public/lib/js/primeng'));
-
   return gulp.src(['node_modules/@angular/**/*'])
     .pipe(gulp.dest('public/lib/js/@angular'));
 });

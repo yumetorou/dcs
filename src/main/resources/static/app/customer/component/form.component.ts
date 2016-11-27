@@ -17,9 +17,11 @@ export class CustomerFormComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             let id = +params['id'];
-            this.customerService.getCustomer(id).subscribe(customer => {
-                this.customer = customer;
-            });
+            if (id) {
+                this.customerService.getCustomer(id).subscribe(customer => {
+                    this.customer = customer;
+                });
+            }
         });
 
         console.log('Customer Form');

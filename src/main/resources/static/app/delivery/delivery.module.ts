@@ -6,13 +6,16 @@ import {DeliveryFormComponent} from "./component/form.component";
 import {DeliveryListComponent} from "./component/list.component";
 import {DeliveryViewComponent} from "./component/view.component";
 import {RouterModule} from "@angular/router";
+import {DataTableModule} from "angular2-datatable";
+
 
 @NgModule({
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
-        RouterModule
+        RouterModule,
+        DataTableModule
     ],
     declarations: [
         DeliveryFormComponent,
