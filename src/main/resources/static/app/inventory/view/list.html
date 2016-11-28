@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-9">
     <h1 class="page-header">Inventory List
       <a class="btn btn-default pull-right" routerLink="/inventory/create"><i class="fa fa-plus"> Inventory Item</i></a>
     </h1>
@@ -7,7 +7,12 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-9">
+    <!--<div class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </div>-->
+
     <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
       <thead>
       <tr>

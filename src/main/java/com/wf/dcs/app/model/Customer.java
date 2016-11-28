@@ -2,13 +2,14 @@ package com.wf.dcs.app.model;
 
 import com.wf.dcs.app.model.base.BaseModel;
 import org.hibernate.annotations.Type;
-import org.joda.time.Days;
 import org.joda.time.LocalDateTime;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by rbandioque on 11/15/16.
@@ -28,9 +29,11 @@ public class Customer extends BaseModel {
     @Column(name = "ADDRESS")
     private String address;
 
-    @ElementCollection
-    @CollectionTable(name = "CUSTOMER_CONTACTS", joinColumns = @JoinColumn(name = "CUSTOMER_ID"))
-    private Set<String> contactNumbers;
+    @Column(name = "CONTACT_NUMBER")
+    private String contactNumber;
+
+    @Column(name = "ALTERNATE_CONTACT_NUMBER")
+    private String alternateContactNumber;
 
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     @Column(name = "FIRST_BUY_DATE")
@@ -39,12 +42,11 @@ public class Customer extends BaseModel {
     @Column(name = "CONTACT_PERSON")
     private String contactPerson;
 
+    @Column(name = "DELIVERY_DAY")
+    private String deliveryDay;
+
     @Column(name = "UNIT_PRICE")
     private BigDecimal unitPrice;
-
-    @ElementCollection
-    @CollectionTable(name = "CUSTOMER_DELIVERY_DAYS", joinColumns = @JoinColumn(name = "CUSTOMER_ID"))
-    private Set<Days> deliveryDay;
 
     @Column(name = "WEEKLY_QUANTITY")
     private Long weeklyQuantity;
@@ -118,11 +120,27 @@ public class Customer extends BaseModel {
         this.unitPrice = unitPrice;
     }
 
-    public Set<Days> getDeliveryDay() {
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getAlternateContactNumber() {
+        return alternateContactNumber;
+    }
+
+    public void setAlternateContactNumber(String alternateContactNumber) {
+        this.alternateContactNumber = alternateContactNumber;
+    }
+
+    public String getDeliveryDay() {
         return deliveryDay;
     }
 
-    public void setDeliveryDay(Set<Days> deliveryDay) {
+    public void setDeliveryDay(String deliveryDay) {
         this.deliveryDay = deliveryDay;
     }
 
@@ -166,11 +184,5 @@ public class Customer extends BaseModel {
         this.unreturnedBottles = unreturnedBottles;
     }
 
-    public Set<String> getContactNumbers() {
-        return contactNumbers;
-    }
 
-    public void setContactNumbers(Set<String> contactNumbers) {
-        this.contactNumbers = contactNumbers;
-    }
 }

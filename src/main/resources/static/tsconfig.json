@@ -11,14 +11,41 @@
     "noImplicitAny": false
   },
   "exclude": [
-    "node_modules"
+    "node_modules/"
   ],
-  "filesGlob":[
-    "app/*.ts",
+  "filesGlob": [
     "app/**/*.ts",
     "typings/*.d.ts"
   ],
   "files": [
-    "typings/index.d.ts"
+    "typings/index.d.ts",
+    "app/app-routing.module.ts",
+    "app/app.component.ts",
+    "app/app.module.ts",
+    "app/core/common/auth.guard.ts",
+    "app/core/common/headers-form-data.ts",
+    "app/core/common/headers.ts",
+    "app/core/common/window.ts",
+    "app/core/dashboard.component.ts",
+    "app/core/login.component.ts",
+    "app/core/service/authentication.service.ts",
+    "app/core/service/commons.service.ts",
+    "app/core/service/security.service.ts",
+    "app/customer/component/form.component.ts",
+    "app/customer/component/list.component.ts",
+    "app/customer/component/view.component.ts",
+    "app/customer/customer.module.ts",
+    "app/customer/customer.service.ts",
+    "app/delivery/component/form.component.ts",
+    "app/delivery/component/list.component.ts",
+    "app/delivery/component/view.component.ts",
+    "app/delivery/delivery.module.ts",
+    "app/inventory/component/form.component.ts",
+    "app/inventory/component/list.component.ts",
+    "app/inventory/component/view.component.ts",
+    "app/inventory/inventory.module.ts",
+    "app/inventory/inventory.service.ts",
+    "app/main.ts",
+    "app/rxjs-extensions.ts"
   ]
 }

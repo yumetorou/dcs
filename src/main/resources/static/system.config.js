@@ -5,7 +5,9 @@ var map = {
   '@angular': 'lib/js/@angular',
   'zone.js': 'lib/js/zone.js/dist',
   'angular2-datatable': 'lib/js/angular2-datatable',
-  'lodash': 'lib/js/lodash/lodash.js'
+  'lodash': 'lib/js/lodash/lodash.js',
+  '@ng-bootstrap/ng-bootstrap': 'lib/js/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
+  'angular2-data-table': 'lib/js/sangular2-data-table/release/index.min.js'
 };
 
 // packages tells the System loader how to load when no filename and/or no extension

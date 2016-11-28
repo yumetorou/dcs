@@ -6,7 +6,7 @@
     "node": "6.5.0"
   },
   "scripts": {
-    "postinstall": "typings install --ambient && gulp build",
+    "postinstall": "typings install --ambient && gulp tsconfig-glob && gulp build",
     "watch": "gulp serve"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
     "gulp-typescript": "2.13.4",
     "gulp-uglify": "1.5.3",
     "gulp-ignore": "2.0.2",
+    "gulp-tsc": "1.2.5",
     "jquery": "2.2.3",
     "live-server": "1.0.0",
     "lodash": "^4.16.4",
@@ -55,7 +56,8 @@
     "angular2-data-table": "^0.12.0",
     "primeng":"1.0.0-rc.7",
     "angular2-datatable":"0.5.2",
-    "lodash": "^4.0.0"
+    "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.8",
+    "ng2-easy-table": "0.1.18"
 
   },
   "devDependencies": {

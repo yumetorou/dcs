@@ -12,6 +12,7 @@ const uglify = require('gulp-uglify');
 const tsconfig = require('tsconfig-glob');
 const browserSync = require('browser-sync').create();
 const tscConfig = require('./tsconfig.json');
+const typescript = require('gulp-tsc');
 
 gulp.task('clean:dist:js', function () {
   return del('public/dist/js/*');
@@ -115,8 +116,14 @@ gulp.task('copy:libs', function () {
   gulp.src(['node_modules/angular2-datatable/**/*'
   ]).pipe(gulp.dest('public/lib/js/angular2-datatable'));
 
+  gulp.src(['node_modules/angular2-data-table/**/*'
+  ]).pipe(gulp.dest('public/lib/js/angular2-data-table'));
+
   gulp.src(['node_modules/lodash/**/*'
   ]).pipe(gulp.dest('public/lib/js/lodash'));
+
+  gulp.src(['node_modules/@ng-bootstrap/ng-bootstrap/**/*'
+  ]).pipe(gulp.dest('public/lib/js/@ng-bootstrap/ng-bootstrap'));
 
   return gulp.src(['node_modules/@angular/**/*'])
     .pipe(gulp.dest('public/lib/js/@angular'));

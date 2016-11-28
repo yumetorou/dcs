@@ -9,6 +9,8 @@ import {InventoryService} from "../inventory.service";
 })
 export class InventoryFormComponent implements OnInit {
     public item:any = {};
+    public errorMessage:string;
+    public successMessage:string;
 
     constructor(public router:Router, private inventoryService:InventoryService, private route:ActivatedRoute) {
     }
@@ -22,19 +24,18 @@ export class InventoryFormComponent implements OnInit {
                 });
             }
         });
-        console.log('Inventory Form');
     }
 
     onSubmit() {
         this.inventoryService.saveItem(this.item).subscribe(
             result => {
-                console.log('saved');
+                this.successMessage = 'Item code: ' + this.item.code + ' successfully ' + (this.item.id ? 'updated!' : 'saved!');
+                this.item = {};
             },
             error=> {
-                console.log('error');
+                this.errorMessage = 'Code already exists!';
             }
         );
-        console.log(this.item);
     }
 
 }

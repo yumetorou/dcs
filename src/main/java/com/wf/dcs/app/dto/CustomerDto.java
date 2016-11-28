@@ -1,11 +1,9 @@
 package com.wf.dcs.app.dto;
 
-import org.joda.time.Days;
 import org.joda.time.LocalDate;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by rbandioque on 11/17/16.
@@ -16,11 +14,12 @@ public class CustomerDto extends BaseDto {
     private String group;
     private String name;
     private String address;
-    private Set<String> contactNumbers;
+    private String contactNumber;
+    private String alternateContactNumber;
     private LocalDate firstBuyDate;
     private String contactPerson;
+    private String deliveryDay;
     private BigDecimal unitPrice;
-    private Set<Days> deliveryDay;
     private Long weeklyQuantity;
     private String remarks;
     private List<DeliveryDto> deliveries;
@@ -59,12 +58,20 @@ public class CustomerDto extends BaseDto {
         this.address = address;
     }
 
-    public Set<String> getContactNumbers() {
-        return contactNumbers;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setContactNumbers(Set<String> contactNumbers) {
-        this.contactNumbers = contactNumbers;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getAlternateContactNumber() {
+        return alternateContactNumber;
+    }
+
+    public void setAlternateContactNumber(String alternateContactNumber) {
+        this.alternateContactNumber = alternateContactNumber;
     }
 
     public LocalDate getFirstBuyDate() {
@@ -91,11 +98,11 @@ public class CustomerDto extends BaseDto {
         this.unitPrice = unitPrice;
     }
 
-    public Set<Days> getDeliveryDay() {
+    public String getDeliveryDay() {
         return deliveryDay;
     }
 
-    public void setDeliveryDay(Set<Days> deliveryDay) {
+    public void setDeliveryDay(String deliveryDay) {
         this.deliveryDay = deliveryDay;
     }
 
